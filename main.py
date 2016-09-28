@@ -65,11 +65,70 @@ def bear():
 			bear()
 	elif answer == "no":
 		print("The bear doesn’t chase you, you make alive safely from the bear.")
-		exit()
+		noise()
 	else:
 		bear()
 			
+def noise():
+	print("you hear a sound rising from behind.")
+	answer = input("you either hide or not?")
+	answer = answer.lower()
+	if answer == "yes":
+		print("you realize it is a car, drove by Mr. Mittag, out of the bush or not?")
+		answerw = input()
+		answerw = answerw.lower()
+		if answerw == "yes":
+			print("Mr. Mittag didn't notice you, and crush your leg, after you fully recovered, you miss the bus again.")
+			hill()
+		elif answerw == "no":
+			print("the car drove away.")
+			walk()
+		else:
+			print(answerw, "is not a good option, you need a better one.")
+			noise()
+	elif answer == "no":
+		print("it is Mr. Mittag's SUV, he's happy to drive you to CFI.")
+		drive()
+	else:
+		noise()
 
+def walk():
+	print("You need to keep walking, then you hear a hawl.")
+	answer = input("You either run or not")
+	answer = answer.lower()
+	if answer == "yes":
+		print("You twist your ankle by a rock, and tumble down 50 feet into ditch.")
+		print(". \n. \n. ")
+		print("Mr. Mittag rescue you after 2 hours, you fully recovered in 3 months")
+		print(". \n. \n. ")
+		print("You missed your bus to North Campus again!")
+		print(". \n. \n. ")
+		hill()
+	elif answer == "no":
+		print("the hawl dived to you and bite your ear down, Mr. Mittag hear your screaming, so he turn back and pick you up to hospital.")
+		print(". \n. \n. ")
+		print("After you out of hospital, you missed the CFI again")
+		hill()
+	else:
+		walk()
+
+def drive():
+	print("Mr. Mittag's SUV tire has been punctured by a nail left by someone(abosuletly not Ryan)You guys need to push the car to North Campus.")
+	print(". \n. \n. ")
+	print("When you guys arrive, the CFI bus just drove back to main campus.")
+	print(". \n. \n. ")
+	tryagain()
+
+def tryagain():
+	print("try again?")
+	answer = input()
+	answer = answer.lower()
+	if answer == "yes":
+		intro()
+	elif answer == "no":
+		exit()
+	else:
+		tryagain()
 
 i  =  1
 while i == 1:
