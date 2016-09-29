@@ -1,4 +1,10 @@
+import random
+import math
+
 def intro():
+	input("please press enter after you fullscreen the window.")
+	input("in beta 1, all the answer could only be yes or no")
+	input("ready to start? press enter!")
 	print("  ___ ___                    /\             ____.                                            _____       .___                    __                        ")
 	print(" /   |   \   ___________  ___)/ ______     |    | ____  __ _________  ____   ____ ___.__.   /  _  \    __| _/__  __ ____   _____/  |_ __ _________   ____  ")
 	print("/    ~    \_/ __ \_  __ \/  _ \/  ___/     |    |/  _ \|  |  \_  __ \/    \_/ __ <   |  |  /  /_\  \  / __ |\  \/ // __ \ /    \   __\  |  \_  __ \_/ __ \ ")
@@ -13,9 +19,9 @@ def hill():
 	print("The bus to CFI just departure!")
 	answer = input("Chase or not?")
 	answer = answer.lower()
-	if answer == "yes":
+	if answer == "yes" or answer == "y" or answer == "chase":
 		halfway()
-	elif answer == "no":
+	elif answer == "no" or answer == "not":
 		dorm()
 	else:
 		hill()
@@ -24,7 +30,7 @@ def halfway():
 	print("you runs half way down the mountain, driver doesn't see you(or pretend)")
 	answer = input("Continue or not?")
 	answer = answer.lower()
-	if answer == "yes":
+	if answer == "yes" or answer == "y":
 		print("you crashed by the car when chasing, you fully recovered after 6 month, and you missed the bus to CFI again!")
 		input("press enter to continue...")
 		hill()
@@ -34,7 +40,7 @@ def halfway():
 		halfway()
 
 def dorm():
-	print("You go back to dorm, You friend told you if you miss the CFI you will be knocked out from South Kent.")
+	print("You go back to dorm, You friend told you if you miss the CFI you will be kicked out from South Kent.")
 	answer = input("stay in dorm or not?")
 	answer = answer.lower()
 	if answer == "yes":
@@ -60,7 +66,13 @@ def figure():
 		figure()
 
 def bear():
-	print("you start walking, and out of nowhere a bear appears. You either fight it or run.")
+	number = random.randint(1 , 2)
+	number = int(number)
+	if number == 1:
+		gender = "male"
+	else:
+		gender = "female"
+	print("you start walking, and out of nowhere a",gender,"bear appears. You either fight it or run.")
 	answer = input("fight or not?")
 	answer = answer.lower()
 	if answer == "yes":
@@ -68,9 +80,19 @@ def bear():
 		answerw = input("stick or stone?")
 		answerw = answerw.lower()
 		if answerw == "stick" or answerw == "stone":
-			print("you wounded, by the dumb decision of fighting with a bear with a ", answerw, " and you fully recovered after 6 month, and you missed the bus to CFI again.")
+			print("you wounded, by the dumb decision of fighting with a bear with a", answerw, "and you fully recovered after 6 month, and you missed the bus to CFI again.")
 			input("press enter to continue...")
 			hill()
+		elif answerw == "fight":
+			if gender == "male":
+				print("it is a strong male bear, you are eaten alive.")
+				input("please enter to continue...")
+				print("you need to finish the journey!")
+				input("please enter to continue...")
+				intro()
+			elif gender == "female":
+				print("you win the fight! you are the hero of South Kent!(but you still missed the CFI)")
+				tryagain()			
 		else:
 			print("how could you have a ", answerw,"in mid of the forest?")
 			input("press enter to continue...")
@@ -157,3 +179,5 @@ def tryagain():
 i  =  1
 while i == 1:
 	intro()
+
+
